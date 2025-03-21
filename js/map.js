@@ -89,8 +89,8 @@ class Map{
     XYdist(line,pos){
         const lineDx=line[1][0]-line[0][0];
         const lineDy=line[1][1]-line[0][1];
-        let Dx=lineDy!==0?Math.abs():(line[0][0]===pos[0]?0:-1);
-        let Dy=lineDx!==0?Math.abs():(line[0][1]===pos[1]?0:-1);
+        let Dx=lineDy!==0?Math.abs(pos[0]-(((pos[1]-line[0][1])/lineDy)*lineDx+line[0][0])):(line[0][0]===pos[0]?0:-1);
+        let Dy=lineDx!==0?Math.abs(pos[1]-(((pos[0]-line[0][0])/lineDx)*lineDy+line[0][1])):(line[0][1]===pos[1]?0:-1);
 
         return [Dx,Dy];
     }
